@@ -21,7 +21,7 @@
             position: {top: '450px', left: '750px'},
             color: 'white',
             size: 100,
-            lockX: true
+            lockX: 'true'
         });
 
         // Función para emular las teclas
