@@ -85,6 +85,9 @@
             button.style.margin = '5px';
             button.style.fontSize = '20px';
             button.style.cursor = 'pointer';
+            button.style.borderRadius = '50%'; // Hacer los botones circulares
+            button.style.backgroundColor = 'transparent'; // Hacer los botones transparentes
+            button.style.border = '2px solid blue'; // Añadir borde para visibilidad
 
             button.onmousedown = function() {
                 simulateKey(keyCode, 'keydown');
@@ -106,11 +109,12 @@
         }
 
         // Crear y añadir los botones al contenedor
+        var gameContainer = document.getElementById('game-container');
         var buttonW = createButton('W', 87); // W
         var buttonK = createButton('K', 75); // K
 
-        container.appendChild(buttonW);
-        container.appendChild(buttonK);
+        gameContainer.appendChild(buttonW);
+        gameContainer.appendChild(buttonK);
     };
     document.head.appendChild(script);
 })();
