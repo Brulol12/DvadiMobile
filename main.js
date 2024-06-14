@@ -127,4 +127,4 @@
             gameContainer.appendChild(buttonsContainer);
     };
     document.head.appendChild(script);
-})();
+}})
