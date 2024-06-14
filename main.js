@@ -3,17 +3,15 @@
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js';
     script.onload = function() {
-        // Crear contenedor para el joystick
-        var container = document.createElement('div');
-        container.id = 'joystick-container';
-        container.style.position = 'fixed';
-        container.style.bottom = '20px';
-        container.style.right = '20px';
-        container.style.width = '100px';
-        container.style.height = '100px';
-        container.style.zIndex = '9999'; // Asegúrate de que esté en la parte superior
-        document.body.appendChild(container);
+        // Mostrar solo el div del juego
+        var gameContainer = document.getElementById('game-container');
+        var bodyChildren = document.body.children;
+        for (var i = 0; i < bodyChildren.length; i++) {
+            bodyChildren[i].style.display = 'none';
+        }
 
+        // Muestra solo el 'game-container'
+        gameContainer.style.display = 'block';
         // Crear el joystick en el contenedor
         var joystick = nipplejs.create({
             zone: document.querySelector('#game-container'),
@@ -111,7 +109,6 @@
         }
 
         // Crear y añadir los botones al contenedor
-        var gameContainer = document.getElementById('game-container');
         var buttonW = createButton('W', 87); // W
         var buttonK = createButton('K', 75); // K
 
