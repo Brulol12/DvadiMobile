@@ -20,7 +20,8 @@
             mode: 'static',
             position: {top: '450px', left: '750px'},
             color: 'white',
-            size: 100
+            size: 100,
+            lockX: true
         });
 
         // Función para emular las teclas
@@ -111,11 +112,19 @@
 
         // Crear y añadir los botones al contenedor
         var gameContainer = document.getElementById('game-container');
-        var buttonW = createButton('Jump', 87); // W
-        var buttonK = createButton('Shut', 75); // K
+        if (gameContainer) {
+            var buttonsContainer = document.createElement('div');
+            buttonsContainer.style.position = 'fixed';
+            buttonsContainer.style.bottom = '20px';
+            buttonsContainer.style.left = '20px';
+            buttonsContainer.style.zIndex = '9999';
 
-        gameContainer.appendChild(buttonW);
-        gameContainer.appendChild(buttonK);
+            var buttonW = createButton('W', 87); // W
+            var buttonK = createButton('K', 75); // K
+
+            buttonsContainer.appendChild(buttonW);
+            buttonsContainer.appendChild(buttonK);
+            gameContainer.appendChild(buttonsContainer);
     };
     document.head.appendChild(script);
 })();
