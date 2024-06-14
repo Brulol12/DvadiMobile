@@ -19,7 +19,7 @@
             zone: document.querySelector('#game-container'),
             mode: 'static',
             position: {top: '450px', left: '750px'},
-            color: 'blue',
+            color: 'white',
             size: 100
         });
 
@@ -80,14 +80,15 @@
         function createButton(label, keyCode) {
             var button = document.createElement('button');
             button.textContent = label;
-            button.style.width = '45px';
+            button.style.width = '80px';
             button.style.height = '45px';
             button.style.margin = '5px';
             button.style.fontSize = '20px';
             button.style.cursor = 'pointer';
-            button.style.borderRadius = '50%'; // Hacer los botones circulares
-            button.style.backgroundColor = 'transparent'; // Hacer los botones transparentes
-            button.style.border = '2px solid blue'; // Añadir borde para visibilidad
+            button.style.borderRadius = '25%';
+            button.style.backgroundColor = 'white';
+            button.style.border = '2px solid white';
+            button.style.opacity = '0.3';
 
             button.onmousedown = function() {
                 simulateKey(keyCode, 'keydown');
@@ -110,8 +111,8 @@
 
         // Crear y añadir los botones al contenedor
         var gameContainer = document.getElementById('game-container');
-        var buttonW = createButton('W', 87); // W
-        var buttonK = createButton('K', 75); // K
+        var buttonW = createButton('Jump', 87); // W
+        var buttonK = createButton('Shut', 75); // K
 
         gameContainer.appendChild(buttonW);
         gameContainer.appendChild(buttonK);
