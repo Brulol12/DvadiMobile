@@ -16,7 +16,7 @@
 
         // Crear el joystick en el contenedor
         var joystick = nipplejs.create({
-            zone: /html/body/div/div/div/div[1]/div[3],
+            zone: document.querySelector('#game-container'),
             mode: 'static',
             position: { left: '50%', top: '50%' },
             color: 'blue',
