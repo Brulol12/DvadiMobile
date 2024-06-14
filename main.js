@@ -18,7 +18,7 @@
         var joystick = nipplejs.create({
             zone: document.querySelector('#game-container'),
             mode: 'static',
-            position: { left: '90%', top: '10%' },
+            position: {top: '50px', left: '750px'},
             color: 'blue',
             size: 100
         });
