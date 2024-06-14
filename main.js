@@ -18,7 +18,7 @@
         var joystick = nipplejs.create({
             zone: document.querySelector('#game-container'),
             mode: 'static',
-            position: {top: '450px', left: '750px'},
+            position: {top: '50px', left: '750px'},
             color: 'blue',
             size: 100
         });
@@ -76,6 +76,41 @@
                 keys['right'] = false;
             }
         });
+        // Crear botones
+        function createButton(label, keyCode) {
+            var button = document.createElement('button');
+            button.textContent = label;
+            button.style.width = '45px';
+            button.style.height = '45px';
+            button.style.margin = '5px';
+            button.style.fontSize = '20px';
+            button.style.cursor = 'pointer';
+
+            button.onmousedown = function() {
+                simulateKey(keyCode, 'keydown');
+            };
+
+            button.onmouseup = function() {
+                simulateKey(keyCode, 'keyup');
+            };
+
+            button.ontouchstart = function() {
+                simulateKey(keyCode, 'keydown');
+            };
+
+            button.ontouchend = function() {
+                simulateKey(keyCode, 'keyup');
+            };
+
+            return button;
+        }
+
+        // Crear y añadir los botones al contenedor
+        var buttonW = createButton('W', 87); // W
+        var buttonK = createButton('K', 75); // K
+
+        container.appendChild(buttonW);
+        container.appendChild(buttonK);
     };
     document.head.appendChild(script);
 })();
