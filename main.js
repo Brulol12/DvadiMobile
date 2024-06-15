@@ -5,27 +5,12 @@
     script.onload = function() {
         // Mostrar solo el div del juego
         var gameContainer = document.getElementById('game-container');
-        document.addEventListener('DOMContentLoaded', function() {
-
-        if (gameContainer) {
-            function hideNonAncestors(element) {
-                if (element === gameContainer || gameContainer.contains(element)) {
-                    return;
-                }
-                element.style.display = 'none';
-            }
-    
-            function hideElements(root) {
-                var children = root.children;
-                for (var i = 0; i < children.length; i++) {
-                    hideNonAncestors(children[i]);
-                    hideElements(children[i]); // Recursivamente oculta los hijos
-                }
-            }
-            hideElements(document.body); // Comienza desde el body
-            gameContainer.style.display = 'block';
+        var bodyChildren = document.body.children;
+        for (var i = 0; i < bodyChildren.length; i++) {
+            bodyChildren[i].style.display = 'none';
         }
-    });
+        gameContainer.style.display = 'block';
+        
         // Crear el joystick en el contenedor
         var joystick = nipplejs.create({
             zone: document.querySelector('#game-container'),
