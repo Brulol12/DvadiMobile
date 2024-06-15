@@ -4,14 +4,13 @@
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js';
     window.onload = function() {
         // Mostrar solo el div del juego
-        document.addEventListener('DOMContentLoaded'), (event) => {
         var gameContainer = document.getElementById('game-container');
         var bodyChildren = document.body.children;
         for (var i = 0; i < bodyChildren.length; i++) {
             bodyChildren[i].style.display = 'none';
         }
         gameContainer.style.display = 'block';
-    }
+        
         // Crear el joystick en el contenedor
         var joystick = nipplejs.create({
             zone: document.querySelector('#game-container'),
