@@ -2,14 +2,27 @@
     // Incluir la biblioteca nipplejs
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js';
-    window.onload = function() {
+    script.onload = function() {
         // Mostrar solo el div del juego
         var gameContainer = document.getElementById('game-container');
-        var bodyChildren = document.body.children;
-        for (var i = 0; i < bodyChildren.length; i++) {
-            bodyChildren[i].style.display = 'none';
+        if (gameContainer) {
+            function hideNonAncestors(element) {
+                if (element === gameContainer || gameContainer.contains(element)) {
+                    return;
+                }
+                element.style.display = 'none';
+            }
+    
+            function hideElements(root) {
+                var children = root.children;
+                for (var i = 0; i < children.length; i++) {
+                    hideNonAncestors(children[i]);
+                    hideElements(children[i]); // Recursivamente oculta los hijos
+                }
+            }
+            hideElements(document.body); // Comienza desde el body
+            gameContainer.style.display = 'block';
         }
-        gameContainer.style.display = 'block';
         
         // Crear el joystick en el contenedor
         var joystick = nipplejs.create({
