@@ -2,7 +2,7 @@
     // Incluir la biblioteca nipplejs
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js';
-    script.onload = function() {
+    window.onload = function() {
         // Mostrar solo el div del juego
         document.addEventListener('DOMContentLoaded'), (event) => {
         var gameContainer = document.getElementById('game-container');
