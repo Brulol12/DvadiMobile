@@ -5,6 +5,8 @@
     script.onload = function() {
         // Mostrar solo el div del juego
         var gameContainer = document.getElementById('game-container');
+        document.addEventListener('DOMContentLoaded'), function() {
+
         if (gameContainer) {
             function hideNonAncestors(element) {
                 if (element === gameContainer || gameContainer.contains(element)) {
@@ -23,7 +25,7 @@
             hideElements(document.body); // Comienza desde el body
             gameContainer.style.display = 'block';
         }
-        
+    }
         // Crear el joystick en el contenedor
         var joystick = nipplejs.create({
             zone: document.querySelector('#game-container'),
